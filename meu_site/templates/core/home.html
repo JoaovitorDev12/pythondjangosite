@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home - Meu Site{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1>Bem-vindo ao Meu Site!</h1>
+        <p>Este é um site criado com Django do zero!</p>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <h2>Produtos em Destaque</h2>
+    {% for produto in produtos %}
+    <div class="col-md-3 mb-4">
+        <div class="card">
+            {% if produto.imagem %}
+                <img src="{{ produto.imagem.url }}" class="card-img-top" alt="{{ produto.nome }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ produto.nome }}</h5>
+                <p class="card-text">{{ produto.preco|floatformat:2 }} R$</p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Nenhum produto disponível.</p>
+    {% endfor %}
+</div>
+{% endblock %}

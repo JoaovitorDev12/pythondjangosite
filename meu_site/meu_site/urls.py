@@ -1,4 +1,4 @@
-# meu_site/urls.py (SUBSTITUA TUDO)
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings

@@ -1,0 +1,34 @@
+<a href="/login/">Login</a> |
+<a href="/cadastro/">Cadastro</a> |
+<a href="/logout/">Logout</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loja 3D</title>
+</head>
+<body style="font-family: Arial; background:#a59a9a;">
+
+<h1 style="text-align:center;">🛒 Catálogo</h1>
+
+<div style="display:flex; flex-wrap:wrap; justify-content:center;">
+
+{% for produto in produtos %}
+    <div style="
+        background:rgb(255, 253, 253);
+        border-radius:10px;
+        padding: 50px;
+        margin:30px;
+        width:250px;
+        box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    ">
+        <h2>{{ produto.nome }}</h2>
+        <p>{{ produto.descricao }}</p>
+        <p><strong>R$ {{ produto.preco }}</strong></p>
+        <p>Estoque: {{ produto.estoque }}</p>
+    </div>
+{% endfor %}
+
+</div>
+
+</body>
+</html>
